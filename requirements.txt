@@ -7,7 +7,7 @@ A simple Flask-based web application that provides basic geographic information 
 Access the live site here:  
 👉 [https://geo-web-4ju6.onrender.com](https://geo-web-4ju6.onrender.com)
 
----
+
 
 ## 📁 Features
 
