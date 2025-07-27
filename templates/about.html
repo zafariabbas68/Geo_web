@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Geo-Infomatics Project</title>
+    <!-- Link to the shared CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            color: #ff6600;
+        }
+
+        /* Header */
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 3em;
+            color: #333;
+        }
+
+        section {
+            margin: 50px auto;
+            padding: 30px;
+            max-width: 1000px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        #team {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            width: 30%;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        .team-member h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .team-member p {
+            font-size: 1.1em;
+            color: #777;
+        }
+
+        .team-member .role {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .team-member {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-member {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/report">Report</a>
+        <a href="/contact">Contact</a>
+    </nav>
+
+    <!-- Header -->
+    <h1>About Us</h1>
+
+    <!-- Team Section -->
+    <section id="team">
+        <h2>Meet the Team</h2>
+
+        <!-- Sriram Krishnasamy Seenivasan -->
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='WhatsApp Image 2025-01-21 at 22.04.07.jpeg') }}" alt="Sriram Krishnasamy Seenivasan">
+            <h3>Sriram Krishnasamy Seenivasan</h3>
+            <p class="role">Role: GIS Developer</p>
+            <p>Expertise in geospatial technologies, specializing in the integration and analysis of satellite and remote sensing data.</p>
+        </div>
+
+        <!-- Rishikesh Miriyala -->
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='WhatsApp Image 2025-01-21 at 22.06.01.jpeg') }}" alt="Rishikesh Miriyala">
+            <h3>Rishikesh Miriyala</h3>
+            <p class="role">Role: GIS Developer</p>
+            <p>Specializes in coding and data visualization, focusing on web mapping technologies and spatial data analysis.</p>
+        </div>
+
+        <!-- Ghulam Abbas Zafari -->
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='FB_IMG_1737449134742.jpg.png') }}" alt="Ghulam Abbas Zafari">
+            <h3>Ghulam Abbas Zafari</h3>
+            <p class="role">Role: GIS Developer</p>
+            <p>Focus on geospatial monitoring and research, with an emphasis on developing automated systems for spatial data collection and analysis.</p>
+        </div>
+    </section>
+</body>
+</html>

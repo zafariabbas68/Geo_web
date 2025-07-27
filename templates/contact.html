@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Geo-Informatic Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #1a1a1a;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #f57c00;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f57c00;
+            font-size: 36px;
+            margin-top: 50px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .contact-info {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info .person {
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .contact-info .person:hover {
+            background-color: #f2f2f2;
+        }
+
+        .contact-info .person h2 {
+            margin: 0;
+            color: #f57c00;
+        }
+
+        .contact-info .person a {
+            color: #f57c00;
+            text-decoration: none;
+        }
+
+        .contact-info .person a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1a1a1a;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/report">Report</a>
+        <a href="/contact">Contact</a>
+    </nav>
+
+    <h1>Contact Us</h1>
+
+    <div class="contact-info">
+        <div class="person">
+            <h2>Sriram Krishnasamy Seenivasan</h2>
+            <p>Email: <a href="mailto:sriramvasan333@gmail.com">sriramvasan333@gmail.com</a></p>
+            <p>Phone: +39 3757377700</p>
+        </div>
+
+        <div class="person">
+            <h2>Rishikesh Miriyala</h2>
+            <p>Email: <a href="mailto:rishikesh.miriyala@mail.polimi.it">rishikesh.miriyala@mail.polimi.it</a></p>
+            <p>Phone: +39 3294518637</p>
+        </div>
+
+        <div class="person">
+            <h2>Ghulam Abbas Zafari</h2>
+            <p>Email: <a href="mailto:ghulamabbas.zafari@mail.polimi.it">ghulamabbas.zafari@mail.polimi.it</a></p>
+            <p>Phone: +39 3791387487</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Geo-Informatic Project | All rights reserved</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geoinformatics Project Report</title>
+    <!-- Link to the shared CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .image-container {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: orange;
+            font-weight: bold;
+            font-size: 2em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+
+        /* Button styles */
+        .back-button-bottom {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        /* Optional hover effects */
+        .back-button-bottom:hover {
+            background-color: #ff8533;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='1000_F_472967239_1r1i7Hdv5Jyy3PtfxsQRbWgfGnjZhlmt.jpg') }}" alt="Wildfire Satellite Imagery" style="width: 100%; height: auto;">
+        <div class="overlay-text">
+            Comparison of Spatio-Temporal Distribution of Burned Areas<br>
+            Politecnico di Milano, CNR-IREA, Geoinformatics Engineering
+        </div>
+    </div>
+
+    <header>
+        <h1>Comparison of Spatio-Temporal Distribution of Burned Areas</h1>
+        <h2>Politecnico di Milano, CNR-IREA, Geoinformatics Engineering</h2>
+        <h3>Rishikesh Miriyala, Sriram Krishnasamy Seenivasan, Ghulam Abbas Zafari</h3>
+    </header>
+
+    <section>
+        <h2>Abstract</h2>
+        <p>The Spatio-Temporal distribution of burned areas (BA) is critical for understanding fire dynamics and their ecological, climatic, and socio-economic impacts. This study presents a comprehensive comparison of burned area estimates derived from major global datasets including FireCCI51 and MCD64. Using multi-annual datasets and Google Earth Engine (GEE) platform, we analyse the spatial and temporal patterns of burned areas at global and regional scales. The analysis also considers ancillary factors influencing the fire activity such as climate variability and land use practices. Custom developed algorithm implemented in GEE facilitates the comparison of products ensuring consistent and accurate assessments. The findings provide insights into the variability and reliability of BA datasets, highlighting implications for their use in fire management. This research contributes to advancing methodologies for inter-product comparison and improving the robustness of global burned area monitoring systems.</p>
+        <h3>Keywords</h3>
+        <p>Burned Area (BA), Spatio-Temporal Analysis, Global BA Products, FireCCI54, MCD64, Multi-Annual Analysis, Google Earth Engine (GEE).</p>
+    </section>
+
+    <section>
+        <h2>Introduction</h2>
+        <p>Wildfires are a global phenomenon with significant ecological, climatic and socio-economic implications. Accurate estimation of burned areas (BAs) is essential for understanding the fire dynamics and their associated impacts. Satellite derived burned area products, such as FireCCI51, MCD64, offer valuable datasets for analysing fire activity, but variations in methodologies lead to inconsistencies in estimates. This study addresses these inconsistencies by leveraging Google Earth Engine (GEE) to perform a detailed comparison of burned areas at spatio-temporal scales, integrating additional datasets to investigate related phenomena.</p>
+    </section>
+
+    <section>
+        <h2>Methods</h2>
+        <h3>2.1 Data Sources</h3>
+        <p>1. Burned Area Products: FireCCI54 and MCD64 were used as the primary datasets for estimating burned areas.</p>
+        <h3>2.2 Active Fire Detection</h3>
+        <p>VIIRS active fire points were utilized to classify fires into five categories based on intensity and location.</p>
+        <h3>2.3 Land Surface Temperature (LST)</h3>
+        <p>MODIS daily LST datasets were employed to analyse temperature variations on fire-prone regions.</p>
+        <h3>2.4 Land Use Land Cover (LULC)</h3>
+        <p>MODIS LULC classification was visualized, the area of each LULC type was calculated to access its correlation with burned areas.</p>
+        <h3>2.5 NDVI Anomalies</h3>
+        <p>Time-Series Analysis of NDVI was conducted to evaluate vegetation health pre- and post-fire events.</p>
+        <h3>2.6 Forest Loss</h3>
+        <p>Hansen’s Forest loss dataset was used to quantify forest loss in burned regions.</p>
+        <h3>2.7 Environmental Variables</h3>
+        <p>Elevation, soil moisture, temperature, and wind direction data were integrated to create a combined predictor for fire risk.</p>
+    </section>
+
+    <section>
+        <h2>Results</h2>
+        <h3>3.1 Burned Area Estimates</h3>
+        <p>The comparison of FireCCI54 and MCD64 revealed variations in spatio-temporal patterns. While both the products showed agreement in high-burned regions, discrepancies were observed in areas with fragmented vegetation.</p>
+        <h3>3.2 Active Fire Classification</h3>
+        <p>The classification of active fires from VIIRS into five categories highlighted spatial clustering of high-intensity fires in specific biomes, particularly savannas and forests.</p>
+        <h3>3.3 Temperature and NDVI Anomalies</h3>
+        <p>The MODIS LST dataset indicated a significant increase in temperature in burned regions, particularly during the peak fire months.</p>
+        <h3>3.4 Land Use and Land Cover Analysis</h3>
+        <p>Analysis of LULC types showed that agricultural lands and savannas were most affected by fires, while urban areas experienced minimal impact. The spatial overlap between burned areas and forest loss highlighted the vulnerability of tropical forests to fire-induced deforestation.</p>
+        <h3>3.5 Combined Predictors and Burned Mask Visualization</h3>
+        <p>The combined predictor model showed strong correlation between fire occurrence and environmental variables such as low soil moisture, high temperature, and wind direction. Burned masks and polygons provided a comprehensive visualization of affected regions, enabling detailed spatial analysis.</p>
+    </section>
+
+    <section>
+        <h2>Discussion</h2>
+        <p>The integration of multiple datasets on GEE provided a robust framework for analysing burned areas. The observed discrepancies between FireCCI54 and MCD64 underscore the need for standardized methodologies in burned areas estimation. Ancillary datasets, such as NDVI anomalies and LULC classification, offered valuable insights into the factors influencing fire dynamics. The combined predictor model highlights the complex interplay of environmental variables in determining fire risk. This approach could be extended to enhance fire forecasting systems. However, limitations such as data resolution and temporal gaps in satellite observation must be addressed in future studies.</p>
+    </section>
+
+    <section>
+        <h2>Conclusion</h2>
+        <p>This study demonstrates the utility of GEE in performing large-scale comparisons of burned area datasets and integrating ancillary environmental factors. The findings contribute to a better understanding of fire dynamics, providing a foundation for improved fire management and climate mitigation strategies. Future research should focus on refining inter-product comparison and incorporating higher-resolution datasets for localized analysis.</p>
+    </section>
+
+    <footer>
+        <h2>References</h2>
+        <ol>
+            <li>FireCCI54 Burned Area Product Documentation.</li>
+            <li>MCD64 Overview.</li>
+            <li>MODIS LST and NDVI Data.</li>
+            <li>Hansen’s Forest Loss documentation.</li>
+            <li>GEE Developer Resources.</li>
+        </ol>
+    </footer>
+
+    <!-- Back to Home Button (Bottom Right Corner) -->
+    <a href="/" class="back-button-bottom">Back to Home</a>
+
+</body>
+</html>
