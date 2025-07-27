@@ -1,8 +1,4 @@
 
-
-### 📄 `README.md`
-
-````markdown
 # 🌍 GeoInfProject
 
 A simple Flask-based web application that provides basic geographic information and project reporting features. Designed as a learning project for deploying Python web apps.
