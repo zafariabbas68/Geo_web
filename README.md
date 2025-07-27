@@ -1,1 +1,38 @@
-# Geo_web
+# 🌍 GeoInfProject
+
+A simple Flask-based web application that provides basic geographic information and project reporting features. Designed as a learning project for deploying Python web apps.
+
+## 🔗 Live Demo
+
+Access the live site here:  
+👉 [https://geo-web-4ju6.onrender.com](https://geo-web-4ju6.onrender.com)
+
+---
+
+## 📁 Features
+
+- 🏠 Home Page  
+- 🗺️ About Page  
+- 📊 Report Page  
+- 📬 Contact Page  
+- 🌐 Deployed on [Render](https://render.com/)
+
+---
+
+## 🛠️ Technologies Used
+
+- Python 3  
+- Flask  
+- HTML/CSS (Jinja2 templates)  
+- Gunicorn (for production)  
+- Render (for hosting)
+
+---
+
+## 🚀 Getting Started (Local Development)
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/zafariabbas68/Geo_web.git
+cd Geo_web
