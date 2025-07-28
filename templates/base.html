@@ -39,3 +39,17 @@
 </body>
 </html>
 <a href="{{ url_for('explore_map') }}">🗺️ Explore Map</a>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="{{ url_for('home') }}" class="nav-logo">🌍 Geo Web</a>
+    <div class="nav-links">
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('report') }}">Report</a>
+      <a href="{{ url_for('explore_map') }}">Explore Map</a>
+      <a href="{{ url_for('chat') }}">ChatBot</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+    </div>
+  </div>
+</nav>

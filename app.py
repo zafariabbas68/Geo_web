@@ -19,12 +19,12 @@ def about():
 def contact():
     return render_template("contact.html")
 
+@app.route("/explore-map")
+def explore_map():
+    return render_template("explore_map.html")
+
 @app.route("/chat", methods=["GET", "POST"])
 def chat():
-    @app.route("/explore-map")
-    def explore_map():
-        return render_template("explore_map.html")
-
     if request.method == "POST":
         user_msg = request.form["message"]
         chat_history.append({"role": "user", "text": user_msg})
