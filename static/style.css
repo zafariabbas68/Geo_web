@@ -12,17 +12,6 @@ nav {
     margin-bottom: 20px;
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-}
-
-nav li {
-    margin: 0 10px;
-}
-
 nav a {
     text-decoration: none;
     color: #007BFF;

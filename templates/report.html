@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GeoInfProject Report</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
   <style>
@@ -107,10 +107,31 @@
       border-radius: 8px;
       text-decoration: none;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      z-index: 10;
     }
 
     .back-button-bottom:hover {
       background-color: #e65c00;
+    }
+
+    .back-button-chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 140px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      z-index: 10;
+    }
+
+    .back-button-chatbot:hover {
+      background-color: #218838;
     }
 
     @media (max-width: 768px) {
@@ -121,10 +142,22 @@
       .overlay-text {
         font-size: 1.4em;
       }
+
+      .back-button-bottom, .back-button-chatbot {
+        position: static;
+        display: inline-block;
+        margin: 10px 10px 0 0;
+      }
     }
   </style>
 </head>
 <body>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/report">Report</a>
+    <a href="/chat">ChatBot</a>
+  </nav>
 
   <!-- Hero Image with Overlay -->
   <div class="hero">
@@ -218,7 +251,9 @@
     </ol>
   </footer>
 
-  <!-- Back to Home Button -->
+  <!-- Buttons for navigation -->
   <a href="/" class="back-button-bottom">Back to Home</a>
+  <a href="/chat" class="back-button-chatbot">Go to ChatBot</a>
+
 </body>
 </html>
