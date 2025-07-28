@@ -5,7 +5,7 @@ chat_history = []
 
 @app.route("/")
 def home():
-    return render_template("index.html")  # or "home.html", choose one consistently
+    return render_template("index.html")
 
 @app.route("/report")
 def report():
@@ -27,3 +27,6 @@ def chat():
         bot_reply = "🔥 Wildfire data explained!" if "fire" in user_msg.lower() else "🤖 Ask me about geoinformatics."
         chat_history.append({"role": "bot", "text": bot_reply})
     return render_template("chat.html", messages=chat_history)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5001, debug=True)

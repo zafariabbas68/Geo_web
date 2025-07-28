@@ -1,44 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Geo Web</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f7f7f7;
-    }
-    nav {
-      background-color: #222;
-      padding: 10px;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-right: 15px;
-      font-weight: bold;
-    }
-    .main-content {
-      margin-top: 20px;
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-    }
-  </style>
-</head>
-<body>
-  <nav>
-    <a href="/">🏠 Home</a>
-    <a href="/report">📊 Report</a>
-    <a href="/chat">🧠 ChatBot</a>
-    <a href="/about">ℹ️ About</a>
-    <a href="/contact">📞 Contact</a>
-  </nav>
-
-  <div class="main-content">
-    {% block content %}{% endblock %}
-  </div>
-</body>
-</html>
+    <meta charset="UTF-8">
+    <title>{% block title %}Geo Info Web{% endblock
