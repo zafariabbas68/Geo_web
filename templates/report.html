@@ -1,266 +1,102 @@
+<!-- templates/report.html -->
 {% extends "base.html" %}
 
+{% block title %}Report - Geo Web{% endblock %}
+
 {% block content %}
-<h1>Welcome to the Home Page</h1>
-<p>This is the Geo Web interface.</p>
-{% endblock %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GeoInfProject Report</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    .hero {
-      position: relative;
-      text-align: center;
-      color: white;
-    }
-
-    .hero img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      max-height: 400px;
-    }
-
-    .overlay-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: orange;
-      font-weight: bold;
-      font-size: 2em;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-      text-align: center;
-      padding: 0 10px;
-    }
-
-    header {
-      padding: 20px;
-      background: #fff;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    header h1 {
-      margin: 10px 0;
-      font-size: 1.8em;
-      color: #444;
-    }
-
-    header h2, header h3 {
-      margin: 5px 0;
-      font-weight: normal;
-      color: #666;
-    }
-
-    section {
-      padding: 30px 40px;
-      background-color: #fff;
-      margin: 20px auto;
-      max-width: 1000px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    section h2 {
-      color: #2c3e50;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 8px;
-    }
-
-    section h3 {
-      color: #e67e22;
-      margin-top: 20px;
-    }
-
-    footer {
-      padding: 20px 40px;
-      background-color: #f9f9f9;
-      border-top: 1px solid #ddd;
-      max-width: 1000px;
-      margin: 20px auto;
-      border-radius: 10px;
-    }
-
-    footer h2 {
-      margin-bottom: 10px;
-      color: #2c3e50;
-    }
-
-    .back-button-bottom {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #ff6600;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      font-size: 1em;
-      cursor: pointer;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-      z-index: 10;
-    }
-
-    .back-button-bottom:hover {
-      background-color: #e65c00;
-    }
-
-    .back-button-chatbot {
-      position: fixed;
-      bottom: 20px;
-      right: 140px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      font-size: 1em;
-      cursor: pointer;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-      z-index: 10;
-    }
-
-    .back-button-chatbot:hover {
-      background-color: #218838;
-    }
-
-    @media (max-width: 768px) {
-      section {
-        padding: 20px;
-      }
-
-      .overlay-text {
-        font-size: 1.4em;
-      }
-
-      .back-button-bottom, .back-button-chatbot {
-        position: static;
-        display: inline-block;
-        margin: 10px 10px 0 0;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <nav>
-    <a href="/">Home</a>
-    <a href="/report">Report</a>
-    <a href="/chat">ChatBot</a>
-  </nav>
-
-  <!-- Hero Image with Overlay -->
-  <div class="hero">
-    <img src="{{ url_for('static', filename='1000_F_472967239_1r1i7Hdv5Jyy3PtfxsQRbWgfGnjZhlmt.jpg') }}" alt="Wildfire Satellite Imagery" />
-    <div class="overlay-text">
-      Comparison of Spatio-Temporal Distribution of Burned Areas<br />
-      Politecnico di Milano · CNR-IREA · Geoinformatics Engineering
-    </div>
+<!-- Hero Image with Overlay -->
+<div class="hero">
+  <img src="{{ url_for('static', filename='1000_F_472967239_1r1i7Hdv5Jyy3PtfxsQRbWgfGnjZhlmt.jpg') }}" alt="Wildfire Satellite Imagery" />
+  <div class="overlay-text">
+    Comparison of Spatio-Temporal Distribution of Burned Areas<br />
+    Politecnico di Milano · CNR-IREA · Geoinformatics Engineering
   </div>
+</div>
 
-  <!-- Header -->
-  <header>
-    <h1>Comparison of Spatio-Temporal Distribution of Burned Areas</h1>
-    <h2>Politecnico di Milano, CNR-IREA, Geoinformatics Engineering</h2>
-    <h3>Rishikesh Miriyala · Sriram Krishnasamy Seenivasan · Ghulam Abbas Zafari</h3>
-  </header>
+<!-- Header -->
+<header>
+  <h1>Comparison of Spatio-Temporal Distribution of Burned Areas</h1>
+  <h2>Politecnico di Milano, CNR-IREA, Geoinformatics Engineering</h2>
+  <h3>Rishikesh Miriyala · Sriram Krishnasamy Seenivasan · Ghulam Abbas Zafari</h3>
+</header>
 
-  <!-- Sections -->
-  <section>
-    <h2>Abstract</h2>
-    <p>This study compares burned area estimates from global datasets (FireCCI54 and MCD64) using Google Earth Engine. Multi-year analysis reveals spatial and temporal patterns, evaluates the influence of climate and land use, and integrates various environmental indicators to enhance fire risk assessment and dataset reliability.</p>
-    <h3>Keywords</h3>
-    <p>Burned Area, Spatio-Temporal Analysis, FireCCI54, MCD64, Google Earth Engine, NDVI, LULC, Forest Loss.</p>
-  </section>
+<!-- Sections -->
+<section>
+  <h2>Abstract</h2>
+  <p>This study compares burned area estimates from global datasets (FireCCI54 and MCD64) using Google Earth Engine. Multi-year analysis reveals spatial and temporal patterns, evaluates the influence of climate and land use, and integrates various environmental indicators to enhance fire risk assessment and dataset reliability.</p>
+  <h3>Keywords</h3>
+  <p>Burned Area, Spatio-Temporal Analysis, FireCCI54, MCD64, Google Earth Engine, NDVI, LULC, Forest Loss.</p>
+</section>
 
-  <section>
-    <h2>Introduction</h2>
-    <p>Wildfires have far-reaching effects. While satellite products like FireCCI51 and MCD64 provide burned area estimates, discrepancies exist. This work uses Google Earth Engine to resolve these issues, comparing datasets and incorporating external factors like vegetation health and climate patterns.</p>
-  </section>
+<section>
+  <h2>Introduction</h2>
+  <p>Wildfires have far-reaching effects. While satellite products like FireCCI51 and MCD64 provide burned area estimates, discrepancies exist. This work uses Google Earth Engine to resolve these issues, comparing datasets and incorporating external factors like vegetation health and climate patterns.</p>
+</section>
 
-  <section>
-    <h2>Methods</h2>
-    <h3>2.1 Data Sources</h3>
-    <p>Burned Area products used: FireCCI54 and MCD64.</p>
+<section>
+  <h2>Methods</h2>
+  <h3>2.1 Data Sources</h3>
+  <p>Burned Area products used: FireCCI54 and MCD64.</p>
 
-    <h3>2.2 Active Fire Detection</h3>
-    <p>VIIRS fire points classified into five intensity levels.</p>
+  <h3>2.2 Active Fire Detection</h3>
+  <p>VIIRS fire points classified into five intensity levels.</p>
 
-    <h3>2.3 Land Surface Temperature</h3>
-    <p>MODIS daily LST analyzed to identify heat anomalies in fire-prone zones.</p>
+  <h3>2.3 Land Surface Temperature</h3>
+  <p>MODIS daily LST analyzed to identify heat anomalies in fire-prone zones.</p>
 
-    <h3>2.4 LULC Classification</h3>
-    <p>Land cover types measured against fire occurrence and spread.</p>
+  <h3>2.4 LULC Classification</h3>
+  <p>Land cover types measured against fire occurrence and spread.</p>
 
-    <h3>2.5 NDVI Anomalies</h3>
-    <p>Vegetation health trends before and after fire incidents via NDVI.</p>
+  <h3>2.5 NDVI Anomalies</h3>
+  <p>Vegetation health trends before and after fire incidents via NDVI.</p>
 
-    <h3>2.6 Forest Loss</h3>
-    <p>Quantified forest depletion using Hansen’s dataset.</p>
+  <h3>2.6 Forest Loss</h3>
+  <p>Quantified forest depletion using Hansen’s dataset.</p>
 
-    <h3>2.7 Environmental Variables</h3>
-    <p>Analyzed elevation, soil moisture, temperature, and wind as fire predictors.</p>
-  </section>
+  <h3>2.7 Environmental Variables</h3>
+  <p>Analyzed elevation, soil moisture, temperature, and wind as fire predictors.</p>
+</section>
 
-  <section>
-    <h2>Results</h2>
-    <h3>3.1 Burned Area Estimates</h3>
-    <p>Differences in BA location and intensity between FireCCI54 and MCD64 were mapped and compared.</p>
+<section>
+  <h2>Results</h2>
+  <h3>3.1 Burned Area Estimates</h3>
+  <p>Differences in BA location and intensity between FireCCI54 and MCD64 were mapped and compared.</p>
 
-    <h3>3.2 Fire Classifications</h3>
-    <p>Fire intensities showed biome-specific clustering; savannas and forests were particularly vulnerable.</p>
+  <h3>3.2 Fire Classifications</h3>
+  <p>Fire intensities showed biome-specific clustering; savannas and forests were particularly vulnerable.</p>
 
-    <h3>3.3 NDVI & Temperature Trends</h3>
-    <p>NDVI anomalies matched fire timing. LST rose notably during peak fire months.</p>
+  <h3>3.3 NDVI & Temperature Trends</h3>
+  <p>NDVI anomalies matched fire timing. LST rose notably during peak fire months.</p>
 
-    <h3>3.4 Land Use Insights</h3>
-    <p>Agricultural zones faced higher burn rates, while urban regions remained mostly unaffected.</p>
+  <h3>3.4 Land Use Insights</h3>
+  <p>Agricultural zones faced higher burn rates, while urban regions remained mostly unaffected.</p>
 
-    <h3>3.5 Predictors and Visualization</h3>
-    <p>Combined models linked fire patterns to moisture, elevation, and temperature. Burned masks helped in detailed spatial interpretation.</p>
-  </section>
+  <h3>3.5 Predictors and Visualization</h3>
+  <p>Combined models linked fire patterns to moisture, elevation, and temperature. Burned masks helped in detailed spatial interpretation.</p>
+</section>
 
-  <section>
-    <h2>Discussion</h2>
-    <p>Integrating GEE with multiple datasets strengthened analysis consistency. Dataset disagreements revealed the need for standard methods. Predictive modeling showed promise in enhancing fire monitoring tools.</p>
-  </section>
+<section>
+  <h2>Discussion</h2>
+  <p>Integrating GEE with multiple datasets strengthened analysis consistency. Dataset disagreements revealed the need for standard methods. Predictive modeling showed promise in enhancing fire monitoring tools.</p>
+</section>
 
-  <section>
-    <h2>Conclusion</h2>
-    <p>GEE enabled a scalable, accurate approach to burned area analysis. The study strengthens fire management strategies and opens paths for advanced predictive modeling using environmental factors.</p>
-  </section>
+<section>
+  <h2>Conclusion</h2>
+  <p>GEE enabled a scalable, accurate approach to burned area analysis. The study strengthens fire management strategies and opens paths for advanced predictive modeling using environmental factors.</p>
+</section>
 
-  <footer>
-    <h2>References</h2>
-    <ol>
-      <li>FireCCI54 Burned Area Product Documentation</li>
-      <li>MCD64 Product Overview</li>
-      <li>MODIS LST and NDVI</li>
-      <li>Hansen Forest Loss Data</li>
-      <li>Google Earth Engine Developer Resources</li>
-    </ol>
-  </footer>
+<footer>
+  <h2>References</h2>
+  <ol>
+    <li>FireCCI54 Burned Area Product Documentation</li>
+    <li>MCD64 Product Overview</li>
+    <li>MODIS LST and NDVI</li>
+    <li>Hansen Forest Loss Data</li>
+    <li>Google Earth Engine Developer Resources</li>
+  </ol>
+</footer>
 
-  <!-- Buttons for navigation -->
-  <a href="/" class="back-button-bottom">Back to Home</a>
-  <a href="/chat" class="back-button-chatbot">Go to ChatBot</a>
-
-</body>
-</html>
+<!-- Navigation Buttons -->
+<a href="/" class="back-button-bottom">Back to Home</a>
+<a href="/chat" class="back-button-chatbot">Go to ChatBot</a>
+{% endblock %}
