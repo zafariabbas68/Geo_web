@@ -164,3 +164,162 @@ body {
     margin-top: 1rem;
   }
 }
+
+/* Report Page Specific Styles */
+.report-hero {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+              url('/static/1000_F_472967239_1r1i7Hdv5Jyy3PtfxsQRbWgfGnjZhlmt.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 5rem 1rem;
+  text-align: center;
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.report-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.report-hero .subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.authors, .author-names {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  opacity: 0.9;
+}
+
+.report-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.report-section {
+  margin-bottom: 3rem;
+}
+
+.report-section h2 {
+  color: var(--primary);
+  border-bottom: 2px solid var(--secondary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.methodology-list, .findings-list, .recommendations-list {
+  padding-left: 1.5rem;
+}
+
+.methodology-list li, .findings-list li, .recommendations-list li {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+/* Visualization Carousel */
+.visualization-carousel {
+  margin: 2rem 0;
+  position: relative;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background: #f8f9fa;
+  padding: 1rem;
+}
+
+.carousel-slide {
+  display: none;
+  text-align: center;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+.carousel-slide img {
+  max-width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin: 0 auto;
+  display: block;
+}
+
+.caption {
+  margin-top: 1rem;
+  font-style: italic;
+  color: var(--gray);
+  text-align: center;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 2rem;
+}
+
+.carousel-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+  background: var(--secondary);
+}
+
+.slide-indicator {
+  font-weight: bold;
+  color: var(--dark);
+}
+
+.report-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .report-hero h1 {
+    font-size: 2rem;
+  }
+
+  .report-hero .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .report-container {
+    padding: 0 1rem;
+  }
+
+  .carousel-slide img {
+    max-height: 300px;
+  }
+}
