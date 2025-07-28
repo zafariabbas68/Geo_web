@@ -1,149 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Geo-Informatic Project</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-image: url("{{ url_for('static', filename='Milan_politechnic.png') }}");
-            background-size: cover;
-            background-position: center;
-            color: white;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - Geo-Informatic Project</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url("{{ url_for('static', filename='Milan_politechnic.png') }}");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+    }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 15px 0;
-            top: 0;
-            z-index: 10;
-        }
+    nav {
+      position: fixed;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 15px 0;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
 
-        .nav-menu {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
+    .nav-menu {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
 
-        .nav-menu li {
-            margin: 0 20px;
-        }
+    .nav-menu li {
+      margin: 0 20px;
+    }
 
-        .nav-menu a {
-            color: white;
-            font-size: 18px;
-            text-decoration: none;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+    .nav-menu a {
+      color: white;
+      font-size: 18px;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
 
-        .nav-menu a:hover {
-            color: #ff6600;
-        }
+    .nav-menu a:hover {
+      color: #ff6600;
+    }
 
-        /* Header */
-        header {
-            text-align: center;
-            padding: 100px 0 50px;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-        }
+    header {
+      text-align: center;
+      padding: 140px 20px 60px;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+    }
 
-        header h1 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+    header h1 {
+      font-size: 3.2em;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
 
-        header p {
-            font-size: 1.5em;
-            font-weight: 300;
-        }
+    header p {
+      font-size: 1.4em;
+      font-weight: 300;
+      color: #f4f4f4;
+    }
 
-        /* Section */
-        section {
-            padding: 40px 20px;
-            margin: 0 auto;
-            background-color: rgba(0, 0, 0, 0.6);
-            max-width: 1000px;
-            border-radius: 8px;
-            margin-top: 100px;
-        }
+    section {
+      padding: 40px 30px;
+      margin: 40px auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      max-width: 1000px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
 
-        section h2 {
-            font-size: 2.5em;
-            color: #ff6600;
-            margin-bottom: 15px;
-        }
+    section h2 {
+      font-size: 2.2em;
+      color: #ff6600;
+      margin-bottom: 20px;
+    }
 
-        section p {
-            font-size: 1.2em;
-            line-height: 1.8;
-            color: #ddd;
-        }
+    section p {
+      font-size: 1.2em;
+      line-height: 1.8;
+      color: #eaeaea;
+    }
 
-        section h3 {
-            font-size: 1.8em;
-            margin-top: 25px;
-            color: #ff6600;
-        }
+    section h3 {
+      font-size: 1.6em;
+      margin-top: 30px;
+      color: #ffa94d;
+    }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5em;
-            }
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2em;
+      }
 
-            section h2 {
-                font-size: 2em;
-            }
+      section h2 {
+        font-size: 1.8em;
+      }
 
-            section p {
-                font-size: 1em;
-            }
-        }
-    </style>
+      section p {
+        font-size: 1em;
+      }
+
+      .nav-menu li {
+        margin: 0 10px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <ul class="nav-menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/report">Report</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul class="nav-menu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/report">Report</a></li>
+      <li><a href="/chat">ChatBot</a></li>
+    </ul>
+  </nav>
 
-    <!-- Header -->
-    <header>
-        <h1>Welcome to the Geo-Informatic Project!</h1>
-        <p>Bringing Geospatial Data to Life with Interactive Mapping.</p>
-    </header>
+  <!-- Hero Header -->
+  <header>
+    <h1>Welcome to the Geo-Informatic Project</h1>
+    <p>Bringing Geospatial Data to Life with Interactive Mapping</p>
+  </header>
 
-    <!-- Introduction Section -->
-    <section>
-        <h2>Introduction</h2>
-        <p>
-            The Spatio-Temporal distribution of burned areas (BA) is critical for understanding fire dynamics and their ecological, climatic, and socio-economic impacts. This study presents a comprehensive comparison of burned area estimates derived from major global datasets including FireCCI51 and MCD64. Using multi-annual datasets and Google Earth Engine (GEE) platform, we analyse the spatial and temporal patterns of burned areas at global and regional scales. The analysis also considers ancillary factors influencing the fire activity such as climate variability and land use practices.
-        </p>
-        <p>
-            Custom developed algorithms implemented in GEE facilitate the comparison of products ensuring consistent and accurate assessments. The findings provide insights into the variability and reliability of BA datasets, highlighting implications for their use in fire management. This research contributes to advancing methodologies for inter-product comparison and improving the robustness of global burned area monitoring systems.
-        </p>
-        <h3>Keywords</h3>
-        <p>
-            Burned Area (BA), Spatio-Temporal Analysis, Global BA Products, FireCCI54, MCD64, Multi-Annual Analysis, Google Earth Engine (GEE).
-        </p>
-    </section>
+  <!-- Main Introduction Section -->
+  <section>
+    <h2>Introduction</h2>
+    <p>
+      The Spatio-Temporal distribution of burned areas (BA) is critical for understanding fire dynamics and their ecological, climatic, and socio-economic impacts. This study presents a comprehensive comparison of burned area estimates derived from major global datasets including FireCCI54 and MCD64. Using multi-annual datasets and the Google Earth Engine (GEE) platform, we analyze the spatial and temporal patterns of burned areas at global and regional scales.
+    </p>
+    <p>
+      Custom-developed algorithms implemented in GEE facilitate the comparison of products, ensuring consistent and accurate assessments. The findings provide insights into the variability and reliability of BA datasets, highlighting implications for their use in fire management. This research contributes to advancing methodologies for inter-product comparison and improving the robustness of global burned area monitoring systems.
+    </p>
+
+    <h3>Keywords</h3>
+    <p>
+      Burned Area (BA), Spatio-Temporal Analysis, Global BA Products, FireCCI54, MCD64, Multi-Annual Analysis, Google Earth Engine (GEE)
+    </p>
+  </section>
 
 </body>
 </html>
