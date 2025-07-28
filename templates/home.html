@@ -3,34 +3,28 @@
 {% block title %}Home - Geo Web{% endblock %}
 
 {% block content %}
-<!-- Hero Banner -->
-<div class="relative w-full h-[450px] bg-cover bg-center" style="background-image: url('{{ url_for('static', filename='Milan_politechnic.png') }}');">
-  <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-center text-white px-4">
-    <h1 class="text-4xl md:text-5xl font-bold">Welcome to the Geo-Informatic Project!</h1>
-    <p class="mt-4 text-xl md:text-2xl font-light">Bringing Geospatial Data to Life with Interactive Mapping</p>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Advanced Geospatial Analysis</h1>
+    <p class="subtitle">Spatio-Temporal Distribution of Burned Areas</p>
+    <div class="hero-buttons">
+      <a href="/report" class="btn btn-primary">View Report</a>
+      <a href="/chat" class="btn btn-secondary">Try ChatBot</a>
+    </div>
   </div>
-</div>
+</section>
 
-<!-- Introduction -->
-<div class="max-w-5xl mx-auto px-4 py-16 space-y-10">
-  <section>
-    <h2 class="text-3xl font-semibold text-orange-600">Introduction</h2>
-    <p class="mt-4 text-gray-800 dark:text-gray-200 leading-relaxed">
-      The Spatio-Temporal distribution of burned areas (BA) is critical for understanding fire dynamics and their ecological, climatic, and socio-economic impacts. This study presents a comprehensive comparison of burned area estimates derived from major global datasets including FireCCI51 and MCD64. Using multi-annual datasets and Google Earth Engine (GEE) platform, we analyse the spatial and temporal patterns of burned areas at global and regional scales. The analysis also considers ancillary factors influencing the fire activity such as climate variability and land use practices.
-    </p>
-    <p class="mt-4 text-gray-800 dark:text-gray-200 leading-relaxed">
-      Custom developed algorithms implemented in GEE facilitate the comparison of products ensuring consistent and accurate assessments. The findings provide insights into the variability and reliability of BA datasets, highlighting implications for their use in fire management. This research contributes to advancing methodologies for inter-product comparison and improving the robustness of global burned area monitoring systems.
-    </p>
-    <h3 class="mt-6 text-xl font-semibold text-orange-500">Keywords</h3>
-    <p class="text-gray-700 dark:text-gray-300">
-      Burned Area (BA), Spatio-Temporal Analysis, Global BA Products, FireCCI54, MCD64, Multi-Annual Analysis, Google Earth Engine (GEE).
-    </p>
-  </section>
-
-  <!-- Navigation Buttons -->
-  <div class="flex justify-center gap-6 pt-10">
-    <a href="/report" class="bg-orange-600 hover:bg-orange-500 text-white px-6 py-2 rounded-lg shadow">📊 Go to Report</a>
-    <a href="/chat" class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-lg shadow">🧠 Try ChatBot</a>
+<!-- Introduction Section -->
+<section class="intro-section">
+  <div class="intro-content">
+    <h2>Introduction</h2>
+    <p>The Spatio-Temporal distribution of burned areas (BA) is critical for understanding fire dynamics and their ecological, climatic, and socio-economic impacts. This study presents a comprehensive comparison of burned area estimates derived from major global datasets including FireCCI51 and MCD64.</p>
+    <p>Custom developed algorithms implemented in GEE facilitate the comparison of products ensuring consistent and accurate assessments. The findings provide insights into the variability and reliability of BA datasets, highlighting implications for their use in fire management.</p>
+    <div class="keywords">
+      <h3>Keywords</h3>
+      <p>Burned Area (BA), Spatio-Temporal Analysis, Global BA Products, FireCCI54, MCD64, Multi-Annual Analysis, Google Earth Engine (GEE).</p>
+    </div>
   </div>
-</div>
+</section>
 {% endblock %}

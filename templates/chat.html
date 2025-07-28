@@ -1,80 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ChatBot</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 2rem;
-            background-color: #f8f8f8;
-        }
-        nav {
-          margin-bottom: 20px;
-        }
-        nav a {
-          margin-right: 15px;
-          text-decoration: none;
-          font-weight: bold;
-          color: #007BFF;
-        }
-        nav a:hover {
-          text-decoration: underline;
-        }
-        .chat-box {
-            width: 100%;
-            max-width: 600px;
-            margin: auto;
-        }
-        .message {
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border-radius: 8px;
-        }
-        .user { background-color: #d0ebff; text-align: right; }
-        .bot  { background-color: #e2e2e2; text-align: left; }
-        .back-button-bottom {
-          display: inline-block;
-          margin-top: 1rem;
-          background-color: #ff6600;
-          color: white;
-          border: none;
-          padding: 12px 20px;
-          font-size: 1em;
-          cursor: pointer;
-          border-radius: 8px;
-          text-decoration: none;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-        .back-button-bottom:hover {
-          background-color: #e65c00;
-        }
-    </style>
-</head>
-<body>
+{% extends "base.html" %}
 
-  <nav>
-    <a href="/">Home</a>
-    <a href="/report">Report</a>
-    <a href="/chat">ChatBot</a>
-  </nav>
+{% block title %}ChatBot - Geo Web{% endblock %}
 
-  <div class="chat-box">
-      <h1>🧠 Simple ChatBot</h1>
-      {% for m in messages %}
-          <div class="message {{ m['role'] }}">
-              {{ m['text'] }}
-          </div>
-      {% endfor %}
-      <form method="post">
-          <input name="message" type="text" required autofocus placeholder="Ask me something..." style="width: 80%;">
-          <button type="submit">Send</button>
-      </form>
-      <br />
-      <a href="/" class="back-button-bottom">Back to Home</a>
+{% block content %}
+<div class="chat-container">
+  <div class="chat-header">
+    <h1>Geo Web Assistant</h1>
+    <p>Ask me about burned areas, geospatial analysis, or our research</p>
   </div>
 
-</body>
-</html>
+  <div class="chat-messages">
+    {% for m in messages %}
+    <div class="message message-{{ m['role'] }}">
+      <div class="message-content">
+        {{ m['text'] }}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <form method="post" class="chat-input">
+    <input type="text" name="message" placeholder="Type your question..." required>
+    <button type="submit" class="btn btn-primary">Send</button>
+  </form>
+</div>
+{% endblock %}
