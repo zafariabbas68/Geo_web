@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 
-{% block title %}ChatBot - Geo Web{% endblock %}
+{% block title %}Geo Web ChatBot{% endblock %}
 
 {% block content %}
 <div class="chat-container">
   <div class="chat-header">
-    <h1>Geo Web Assistant</h1>
-    <p>Ask me about burned areas, geospatial analysis, or our research</p>
+    <h1>🌍 Geo Web Assistant</h1>
+    <p>Ask me about burned areas, dataset comparisons, or our analysis methods</p>
+    <div class="suggested-questions">
+      <p>Try asking:</p>
+      <ul>
+        <li>"What were the key wildfire findings in Australia?"</li>
+        <li>"How does NDVI relate to burned areas?"</li>
+        <li>"Compare VIIRS and MODIS datasets"</li>
+      </ul>
+    </div>
   </div>
 
   <div class="chat-messages">
@@ -20,7 +28,7 @@
   </div>
 
   <form method="post" class="chat-input">
-    <input type="text" name="message" placeholder="Type your question..." required>
+    <input type="text" name="message" placeholder="Ask about Australian wildfires..." required>
     <button type="submit" class="btn btn-primary">Send</button>
   </form>
 </div>

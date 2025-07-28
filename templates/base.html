@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Geo Web{% endblock %}</title>
+  <title>{% block title %}Geo Info Web{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <!-- Navigation -->
+  <!-- Navigation bar -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="{{ url_for('home') }}" class="nav-logo">🌍 Geo Web</a>
       <div class="nav-links">
         <a href="{{ url_for('home') }}">Home</a>
         <a href="{{ url_for('report') }}">Report</a>
+        <a href="{{ url_for('explore_map') }}">Explore Map</a>
         <a href="{{ url_for('chat') }}">ChatBot</a>
         <a href="{{ url_for('about') }}">About</a>
         <a href="{{ url_for('contact') }}">Contact</a>
@@ -21,7 +22,7 @@
     </div>
   </nav>
 
-  <!-- Main Content -->
+  <!-- Page content block -->
   <main class="container">
     {% block content %}{% endblock %}
   </main>
@@ -38,18 +39,3 @@
   </footer>
 </body>
 </html>
-<a href="{{ url_for('explore_map') }}">🗺️ Explore Map</a>
-
-<nav class="navbar">
-  <div class="nav-container">
-    <a href="{{ url_for('home') }}" class="nav-logo">🌍 Geo Web</a>
-    <div class="nav-links">
-      <a href="{{ url_for('home') }}">Home</a>
-      <a href="{{ url_for('report') }}">Report</a>
-      <a href="{{ url_for('explore_map') }}">Explore Map</a>
-      <a href="{{ url_for('chat') }}">ChatBot</a>
-      <a href="{{ url_for('about') }}">About</a>
-      <a href="{{ url_for('contact') }}">Contact</a>
-    </div>
-  </div>
-</nav>
