@@ -7,14 +7,16 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+  <!-- Navigation bar -->
   <nav>
-    <a href="/">🏠 Home</a>
-    <a href="/report">📊 Report</a>
-    <a href="/chat">🧠 ChatBot</a>
-    <a href="/about">ℹ️ About</a>
-    <a href="/contact">📞 Contact</a>
+    <a href="{{ url_for('home') }}">🏠 Home</a>
+    <a href="{{ url_for('report') }}">📊 Report</a>
+    <a href="{{ url_for('chat') }}">🧠 ChatBot</a>
+    <a href="{{ url_for('about') }}">ℹ️ About</a>
+    <a href="{{ url_for('contact') }}">📞 Contact</a>
   </nav>
 
+  <!-- Page content block -->
   <main>
     {% block content %}{% endblock %}
   </main>
