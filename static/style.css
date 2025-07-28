@@ -323,3 +323,106 @@ body {
     max-height: 300px;
   }
 }
+/* Map Page Styles */
+.map-hero {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+              url('/static/australia-wildfire-crisis-map-of-australia-fires-3d-rendering-2AMGR71.jpg');
+  background-size: cover;
+  color: white;
+  padding: 4rem 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.map-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.map-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+#map {
+  height: 600px;
+  flex-grow: 1;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.layer-control {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 250px;
+}
+
+.layer-control h3 {
+  margin-top: 0;
+  color: var(--primary);
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.layer-option {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.layer-option input {
+  margin-right: 0.5rem;
+}
+
+.map-legend {
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  border: 1px solid #999;
+}
+
+.burned-area-legend .legend-color {
+  background: #ff4500;
+}
+
+.temp-legend .legend-color {
+  background: linear-gradient(to right, blue, red);
+}
+
+.ndvi-legend .legend-color {
+  background: linear-gradient(to right, brown, yellow, green);
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    flex-direction: column;
+  }
+
+  .layer-control {
+    width: auto;
+  }
+
+  #map {
+    height: 400px;
+  }
+}

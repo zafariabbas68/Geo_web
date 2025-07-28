@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}Explore Map - Geo Web{% endblock %}
+
+{% block content %}
+<div class="map-hero">
+  <h1>Interactive Geospatial Explorer</h1>
+  <p>Visualize burned areas and environmental factors across Australia</p>
+</div>
+
+<div class="map-container">
+  <!-- Map Container -->
+  <div id="map"></div>
+
+  <!-- Layer Control Panel -->
+  <div class="layer-control">
+    <h3>Map Layers</h3>
+    <div class="layer-option">
+      <input type="checkbox" id="burned-area-toggle" checked>
+      <label for="burned-area-toggle">Burned Area (2019-2020)</label>
+    </div>
+    <div class="layer-option">
+      <input type="checkbox" id="temp-toggle">
+      <label for="temp-toggle">Land Surface Temperature (2019)</label>
+    </div>
+    <div class="layer-option">
+      <input type="checkbox" id="ndvi-toggle">
+      <label for="ndvi-toggle">NDVI</label>
+    </div>
+    <div class="layer-option">
+      <input type="checkbox" id="satellite-toggle" checked>
+      <label for="satellite-toggle">Google Satellite</label>
+    </div>
+  </div>
+</div>
+
+<!-- Map Legend -->
+<div class="map-legend">
+  <h4>Legend</h4>
+  <div class="legend-item burned-area-legend">
+    <div class="legend-color"></div>
+    <span>Burned Areas</span>
+  </div>
+  <div class="legend-item temp-legend">
+    <div class="legend-color"></div>
+    <span>Temperature (°C)</span>
+  </div>
+  <div class="legend-item ndvi-legend">
+    <div class="legend-color"></div>
+    <span>Vegetation Index</span>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+  // Initialize the map
+  const map = L.map('map').setView([-25.2744, 133.7751], 5); // Centered on Australia
+
+  // Add base layers
+  const satellite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+    maxZoom: 20,
+    subdomains: ['mt0','mt1','mt2','mt3']
+  }).addTo(map);
+
+  // Layer groups
+  const burnedAreaLayer = L.layerGroup();
+  const tempLayer = L.layerGroup();
+  const ndviLayer = L.layerGroup();
+
+  // Add your image overlays (replace with your actual image paths and bounds)
+  const burnedAreaOverlay = L.imageOverlay(
+    '{{ url_for("static", filename="burned_area_aus_2021_3.png") }}',
+    [[-44, 112], [-10, 154]] // Adjust these bounds to match your image
+  ).addTo(burnedAreaLayer);
+
+  const tempOverlay = L.imageOverlay(
+    '{{ url_for("static", filename="ForestLossAus_3.png") }}', // Replace with your temp image
+    [[-44, 112], [-10, 154]]
+  ).addTo(tempLayer);
+
+  const ndviOverlay = L.imageOverlay(
+    '{{ url_for("static", filename="ndvi_1.png") }}',
+    [[-44, 112], [-10, 154]]
+  ).addTo(ndviLayer);
+
+  // Layer control logic
+  document.getElementById('burned-area-toggle').addEventListener('change', function(e) {
+    if (e.target.checked) burnedAreaLayer.addTo(map);
+    else map.removeLayer(burnedAreaLayer);
+  });
+
+  document.getElementById('temp-toggle').addEventListener('change', function(e) {
+    if (e.target.checked) tempLayer.addTo(map);
+    else map.removeLayer(tempLayer);
+  });
+
+  document.getElementById('ndvi-toggle').addEventListener('change', function(e) {
+    if (e.target.checked) ndviLayer.addTo(map);
+    else map.removeLayer(ndviLayer);
+  });
+
+  document.getElementById('satellite-toggle').addEventListener('change', function(e) {
+    if (e.target.checked) satellite.addTo(map);
+    else map.removeLayer(satellite);
+  });
+</script>
+{% endblock %}
