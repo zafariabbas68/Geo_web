@@ -9,10 +9,8 @@
 </div>
 
 <div class="map-container">
-  <!-- Map Container -->
   <div id="map"></div>
 
-  <!-- Layer Control Panel -->
   <div class="layer-control">
     <h3>Map Layers</h3>
     <div class="layer-option">
@@ -34,7 +32,6 @@
   </div>
 </div>
 
-<!-- Map Legend -->
 <div class="map-legend">
   <h4>Legend</h4>
   <div class="legend-item burned-area-legend">
@@ -51,58 +48,77 @@
   </div>
 </div>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.8.0/proj4.js"></script>
 <script>
-  // Initialize the map
-  const map = L.map('map').setView([-25.2744, 133.7751], 5); // Centered on Australia
+// Define the CRS for Australia
+const crs = L.CRS.EPSG3857; // Standard Web Mercator used by Google Maps
 
-  // Add base layers
-  const satellite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-    maxZoom: 20,
-    subdomains: ['mt0','mt1','mt2','mt3']
-  }).addTo(map);
+// Initialize the map with proper CRS
+const map = L.map('map', {
+  crs: crs
+}).setView([-25.2744, 133.7751], 5);
 
-  // Layer groups
-  const burnedAreaLayer = L.layerGroup();
-  const tempLayer = L.layerGroup();
-  const ndviLayer = L.layerGroup();
+// Add Google Satellite layer
+const satellite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+  maxZoom: 20,
+  subdomains: ['mt0','mt1','mt2','mt3'],
+  attribution: 'Google Satellite'
+}).addTo(map);
 
-  // Add your image overlays (replace with your actual image paths and bounds)
-  const burnedAreaOverlay = L.imageOverlay(
-    '{{ url_for("static", filename="burned_area_aus_2021_3.png") }}',
-    [[-44, 112], [-10, 154]] // Adjust these bounds to match your image
-  ).addTo(burnedAreaLayer);
+// Define the exact bounds of your image overlays in [SW, NE] format
+const australiaBounds = L.latLngBounds(
+  L.latLng(-44, 112), // Southwest corner
+  L.latLng(-10, 154)  // Northeast corner
+);
 
-  const tempOverlay = L.imageOverlay(
-    '{{ url_for("static", filename="ForestLossAus_3.png") }}', // Replace with your temp image
-    [[-44, 112], [-10, 154]]
-  ).addTo(tempLayer);
+// Layer groups
+const burnedAreaLayer = L.layerGroup();
+const tempLayer = L.layerGroup();
+const ndviLayer = L.layerGroup();
 
-  const ndviOverlay = L.imageOverlay(
-    '{{ url_for("static", filename="ndvi_1.png") }}',
-    [[-44, 112], [-10, 154]]
-  ).addTo(ndviLayer);
+// Add image overlays with proper bounds and CRS
+const burnedAreaOverlay = L.imageOverlay(
+  '{{ url_for("static", filename="burned_area_aus_2021_3.png") }}',
+  australiaBounds,
+  { opacity: 0.7 }
+).addTo(burnedAreaLayer);
 
-  // Layer control logic
-  document.getElementById('burned-area-toggle').addEventListener('change', function(e) {
-    if (e.target.checked) burnedAreaLayer.addTo(map);
-    else map.removeLayer(burnedAreaLayer);
-  });
+const tempOverlay = L.imageOverlay(
+  '{{ url_for("static", filename="ForestLossAus_3.png") }}',
+  australiaBounds,
+  { opacity: 0.7 }
+).addTo(tempLayer);
 
-  document.getElementById('temp-toggle').addEventListener('change', function(e) {
-    if (e.target.checked) tempLayer.addTo(map);
-    else map.removeLayer(tempLayer);
-  });
+const ndviOverlay = L.imageOverlay(
+  '{{ url_for("static", filename="ndvi_1.png") }}',
+  australiaBounds,
+  { opacity: 0.7 }
+).addTo(ndviLayer);
 
-  document.getElementById('ndvi-toggle').addEventListener('change', function(e) {
-    if (e.target.checked) ndviLayer.addTo(map);
-    else map.removeLayer(ndviLayer);
-  });
+// Fit map to Australia bounds initially
+map.fitBounds(australiaBounds);
 
-  document.getElementById('satellite-toggle').addEventListener('change', function(e) {
-    if (e.target.checked) satellite.addTo(map);
-    else map.removeLayer(satellite);
-  });
+// Layer control logic
+document.getElementById('burned-area-toggle').addEventListener('change', function(e) {
+  if (e.target.checked) burnedAreaLayer.addTo(map);
+  else map.removeLayer(burnedAreaLayer);
+});
+
+document.getElementById('temp-toggle').addEventListener('change', function(e) {
+  if (e.target.checked) tempLayer.addTo(map);
+  else map.removeLayer(tempLayer);
+});
+
+document.getElementById('ndvi-toggle').addEventListener('change', function(e) {
+  if (e.target.checked) ndviLayer.addTo(map);
+  else map.removeLayer(ndviLayer);
+});
+
+document.getElementById('satellite-toggle').addEventListener('change', function(e) {
+  if (e.target.checked) satellite.addTo(map);
+  else map.removeLayer(satellite);
+});
 </script>
 {% endblock %}
